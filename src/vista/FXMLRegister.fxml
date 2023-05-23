@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegisterController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="629.0" prefWidth="363.0">
+               <children>
+                  <TextField fx:id="usuarioTextField" layoutX="27.0" layoutY="225.0" prefHeight="28.0" prefWidth="302.0" promptText="Usuario (no incluyas espacios en el nombre)" />
+                  <TextField fx:id="contraseñaTextField" layoutX="27.0" layoutY="265.0" prefHeight="28.0" prefWidth="302.0" promptText="Contraseña (más de 6 caracteres)" />
+                  <Label layoutX="94.0" layoutY="114.0" prefHeight="30.0" prefWidth="175.0" text="Registrar una cuenta">
+                     <font>
+                        <Font name="Gill Sans MT" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="96.0" fitWidth="85.0" layoutX="139.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../recursos/40358.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="nombreTextField" layoutX="27.0" layoutY="180.0" prefHeight="28.0" prefWidth="120.0" promptText="Nombre" />
+                  <TextField fx:id="apellidosTextField" layoutX="156.0" layoutY="180.0" prefHeight="28.0" prefWidth="175.0" promptText="Apellidos" />
+                  <TextField fx:id="tarjetaTextField" layoutX="28.0" layoutY="399.0" prefHeight="28.0" prefWidth="186.0" promptText="Tarjeta de crédito" />
+                  <TextField fx:id="cvcTextField" layoutX="222.0" layoutY="399.0" prefHeight="28.0" prefWidth="106.0" promptText="CVC (3 dígitos)" />
+                  <Label layoutX="27.0" layoutY="379.0" text="* Forma de pago (opcional)">
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="fotoperfilComboBox" layoutX="244.0" layoutY="448.0" prefHeight="46.0" prefWidth="48.0" />
+                  <Label layoutX="26.0" layoutY="456.0" text="* Elige tu foto de perfil (opcional)">
+                     <font>
+                        <Font name="Gill Sans MT" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="numtelefonoTextField" layoutX="27.0" layoutY="339.0" prefHeight="28.0" prefWidth="214.0" promptText="Num. Teléfono" />
+                  <TextField fx:id="contraseña2TextField" layoutX="27.0" layoutY="301.0" prefHeight="28.0" prefWidth="302.0" promptText="Repite tu contraseña" />
+                  <Button layoutX="74.0" layoutY="525.0" mnemonicParsing="false" onAction="#registrar2Action" prefHeight="66.0" prefWidth="214.0" text="Registrar" />
+                  <Hyperlink layoutX="143.0" layoutY="591.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
+                  <Label fx:id="errorcontraseñasLabel" layoutX="156.0" layoutY="270.0" prefHeight="18.0" prefWidth="190.0" textFill="#ea2525" />
+                  <Label fx:id="errortelefonoLabel" layoutX="129.0" layoutY="345.0" prefHeight="18.0" prefWidth="106.0" textFill="#e41717" />
+                  <Label fx:id="errorcvcLabel" layoutX="222.0" layoutY="378.0" prefHeight="18.0" prefWidth="106.0" textFill="#d92525" />
+                  <Label fx:id="errortarjetaLabel" layoutX="33.0" layoutY="427.0" prefHeight="18.0" prefWidth="106.0" textFill="#dc1b1b" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
