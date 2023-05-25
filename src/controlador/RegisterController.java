@@ -7,6 +7,8 @@ package controlador;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Club;
+import model.ClubDAOException;
 import model.Member;
 
 /**
@@ -61,12 +64,13 @@ public class RegisterController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)  {
         // TODO
+    
     }    
 
     @FXML
-    private void registrar2Action(ActionEvent event) throws IOException {
+    private void registrar2Action(ActionEvent event) throws IOException, ClubDAOException {
         String nombre = nombreTextField.getText();
         String contraseña = contraseñaTextField.getText();
         String contraseña2 = contraseña2TextField.getText();
@@ -75,14 +79,8 @@ public class RegisterController implements Initializable {
         String tarjeta = tarjetaTextField.getText();
         String telefono = numtelefonoTextField.getText();
         String cvc = cvcTextField.getText();
-        boolean contraseñasIguales = true;
-        
-        
-        
-            
-        
-        
-        
+   
+
         //COMPROBAR ESPACIOS VACIOS
         
         Alert alert = new Alert(AlertType.ERROR);
@@ -94,7 +92,18 @@ public class RegisterController implements Initializable {
             alert.showAndWait();
         }
         
+        //COMPROBAR USUARIO EXISTE
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // COMPROBAR CONTRASEÑAS
+        
         else if (contraseña.length() < 6 ) {
         Alert alert2 = new Alert(AlertType.ERROR);
         alert2.setTitle("Diálogo de excepción");
@@ -103,46 +112,38 @@ public class RegisterController implements Initializable {
         alert2.showAndWait();
         }
         
-        else if (contraseña.equals(contraseña2) && contraseña.length() == contraseña2.length()) {
-            errorcontraseñasLabel.setText("");
-        }else{
-            errorcontraseñasLabel.setText("*Las contraseñas no coinciden*");
+        else if (!(contraseña.equals(contraseña2) && contraseña.length() == contraseña2.length())) {
+            
+            errorcontraseñasLabel.setText("Las contraseñas no coinciden");
+            }
+        
+        
+        //COMPROBAR NUMEROS
+           
+           else if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && cvc.isEmpty()) && !(esNumero(tarjeta) && esNumero(cvc)))) {
+        Alert alert3 = new Alert(AlertType.ERROR);
+        alert3.setTitle("Diálogo de excepción");
+        alert3.setHeaderText("Error");
+        alert3.setContentText("Los campos Num. Teléfono, Tarjeta y CVC deben ser valores numéricos");
+        alert3.showAndWait();
+        errorcontraseñasLabel.setText("");
         }
         
+        Club club = Club.getInstance();
         
         
-            Alert alert3 = new Alert(AlertType.ERROR);
-            alert3.setTitle("Diálogo de excepción");
-            alert3.setHeaderText("Error");
-            alert3.setContentText("Los campos Num. Teléfono, Tarjeta y CVC han de ser valores numéricos");
+        Member r = club.registerMember(nombre, apellidos, telefono, cvc, telefono, tarjeta, 0, null);
+    }
 
-        try {
-                double numericValueTelefono = Double.parseDouble(telefono); 
-                double numericValueTarjeta = Double.parseDouble(tarjeta); 
-                double numericValue = Double.parseDouble(tarjeta);
-            } catch (NumberFormatException ex) {
-                 alert3.showAndWait();
-            }
-           
-            if (telefono.length() < 9) {
-                errortelefonoLabel.setText("Teléfono no válido");
-            } else {
-            errortelefonoLabel.setText("");
+        
+        
+// ...
+
+      
     
             
-            if (cvc.length() < 3) {
-            errorcvcLabel.setText("CVC no válido");
-                } else {
-            errorcvcLabel.setText("");
-            }
             
-            
-            if (tarjeta.length() < 16) {
-            errortarjetaLabel.setText("Tarjeta no válida");
-                } else {
-            errortarjetaLabel.setText("");
-            }
-            }
+
 
 
         
@@ -170,9 +171,18 @@ public class RegisterController implements Initializable {
     } */
         
         
+    public boolean esNumero(String numero) {
+            try {
+        Double.valueOf(numero);
+        return true;
+        } catch (NumberFormatException e) {
+        return false;
+         }
+        }
+    
         
-        
-    }
+    
+
     
 
     @FXML
@@ -192,8 +202,13 @@ public class RegisterController implements Initializable {
             stage.setMaxWidth(stage.getWidth());
             
             usuarioTextField.getScene().getWindow().hide();
-    }
 }
+}
+    
+    
+  
+
+
 
 
 
@@ -201,6 +216,4 @@ public class RegisterController implements Initializable {
 
     
 
-
-    
 
