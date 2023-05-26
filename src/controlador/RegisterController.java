@@ -1,14 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package controlador;
 
+import aplicacion.DialogHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +28,7 @@ import model.Member;
 /**
  * FXML Controller class
  *
- * @author victo
+ * @author victo, joan
  */
 public class RegisterController implements Initializable {
 
@@ -65,13 +64,25 @@ public class RegisterController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb)  {
-        // TODO
-    
-    }    
+    public void initialize(URL url, ResourceBundle rb) {
+        cvcTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(
+                    ObservableValue<? extends String> observable,
+                    String oldValue,
+                    String newValue
+            ) {
+                if (!newValue.matches("\\d{1,4}")) {
+                    String formatted = newValue.replaceAll("[^\\d]", "");
+                    formatted = formatted.isEmpty() ? formatted : formatted.substring(0, Math.min(formatted.length(), 4));
+                    cvcTextField.setText(formatted);
+                }
+            }
+        });
+    }
 
     @FXML
-    private void registrar2Action(ActionEvent event) throws IOException, ClubDAOException {
+    private void registrar2Action(ActionEvent event) {
         String nombre = nombreTextField.getText();
         String contraseña = passwordField.getText();
         String contraseña2 = password2Field.getText();
@@ -79,141 +90,106 @@ public class RegisterController implements Initializable {
         String usuario = usuarioTextField.getText();
         String tarjeta = tarjetaTextField.getText();
         String telefono = numtelefonoTextField.getText();
-        String svc = cvcTextField.getText();
-   
+        String cvc = cvcTextField.getText();
 
-        //COMPROBAR ESPACIOS VACIOS
-        
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Diálogo de excepción");
-        alert.setHeaderText("Error al crear el usuario");
-        alert.setContentText("Se tienen que rellenar todos los campos");
-        if(nombre.isEmpty() || apellidos.isEmpty() || contraseña.isEmpty() || contraseña2.isEmpty() ||
-                usuario.isEmpty() || telefono.isEmpty() ){
-            alert.showAndWait();
+        if (nombre.isEmpty()
+                || apellidos.isEmpty()
+                || contraseña.isEmpty()
+                || contraseña2.isEmpty()
+                || usuario.isEmpty()
+                || telefono.isEmpty()) {
+            DialogHelper.showAlert(
+                    AlertType.ERROR,
+                    "Diálogo de excepción",
+                    "Error al crear el usuario",
+                    "Por favor, rellene los campos obligatorios."
+            );
+            return;
         }
-        
-        //COMPROBAR USUARIO EXISTE
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // COMPROBAR CONTRASEÑAS
-        
-        else if (contraseña.length() < 6 ) {
-        Alert alert2 = new Alert(AlertType.ERROR);
-        alert2.setTitle("Diálogo de excepción");
-        alert2.setHeaderText("Error al crear el usuario");
-        alert2.setContentText("La contraseña tiene que tener al menos 6 caracteres");
-        alert2.showAndWait();
+        if (contraseña.length() < 6) {
+            DialogHelper.showAlert(
+                    AlertType.ERROR,
+                    "Diálogo de excepción",
+                    "Error al crear el usuario",
+                    "La contraseña tiene que tener al menos 6 caracteres."
+            );
+            return;
         }
-        
-        else if (!(contraseña.equals(contraseña2) && contraseña.length() == contraseña2.length())) {
-            
+        if (contraseña.equals(contraseña2)) {
+            errorcontraseñasLabel.setText("");
+        } else {
             errorcontraseñasLabel.setText("Las contraseñas no coinciden");
-            }
-        
-        
-        //COMPROBAR NUMEROS
-           
-           else if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && svc.isEmpty()) && !(esNumero(tarjeta) && esNumero(svc)))) {
-        Alert alert3 = new Alert(AlertType.ERROR);
-        alert3.setTitle("Diálogo de excepción");
-        alert3.setHeaderText("Error");
-        alert3.setContentText("Los campos Num. Teléfono, Tarjeta y CVC deben ser valores numéricos");
-        alert3.showAndWait();
-        errorcontraseñasLabel.setText("");
+            return;
         }
-        
-        Club club = Club.getInstance();
-        
-        Member r = club.registerMember(nombre, apellidos, telefono, usuario, telefono, tarjeta.isEmpty() ? null : tarjeta, svc.isEmpty() ? 0 : Integer.parseInt(svc), null);
+        if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && cvc.isEmpty()) && !(esNumero(tarjeta) && esNumero(cvc)))) {
+            DialogHelper.showAlert(
+                    AlertType.ERROR,
+                    "Diálogo de excepción",
+                    "Error al crear el usuario",
+                    "Los campos Num. Teléfono, Tarjeta y CVC deben ser valores numéricos."
+            );
+            return;
+        }
+
+        try {
+            Club.getInstance().registerMember(
+                    nombre,
+                    apellidos,
+                    telefono,
+                    usuario,
+                    telefono,
+                    tarjeta.isEmpty() ? null : tarjeta,
+                    cvc.isEmpty() ? 0 : Integer.parseInt(cvc),
+                    null
+            );
+            DialogHelper.showAlert(
+                    AlertType.INFORMATION,
+                    "Diálogo de información",
+                    "Usuario creado",
+                    String.format("El usuario %s ha sido registrado exitosamente.", usuario)
+            );
+            iniciarsesion2Action(null);
+        } catch (ClubDAOException ex) {
+            if (ex.getMessage().contains("SQLITE_CONSTRAINT_PRIMARYKEY")) {
+                usuarioTextField.textProperty().setValue("");
+                DialogHelper.showAlert(
+                        AlertType.ERROR,
+                        "Diálogo de excepción",
+                        "Error al crear el usuario",
+                        "El nombre de usuario ya está siendo utilizado por otro usuario. Por favor, elija uno distinto."
+                );
+            }
+            throw new RuntimeException(ex);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
-        
-        
-// ...
-
-      
-    
-            
-            
-
-
-
-        
-        //Club club = Club.getInstance();
-        //Member result = club.registerMember(nombre, apellidos, telefono, usuario, contraseña, tarjeta, cvc, null);
-
-        // registerClear();
-        // iniciarsesion2Action(ActionEvent);
-
-  
-    
-        
-   
-    //LIMPIAR CAMPOS DEL REGISTRO
-    /*private void registerClear() {
-        nombreTextField.setText("");
-        contraseñaTextField.setText("");
-        contraseña2TextField.setText("");
-        apellidosTextField.setText("");
-        usuarioTextField.setText("");
-        numtelefonoTextField.setText("");
-        tarjetaTextField.setText("");
-        cvcTextField.setText("");
-        
-    } */
-        
-        
     public boolean esNumero(String numero) {
-            try {
-        Double.valueOf(numero);
-        return true;
+        try {
+            Double.valueOf(numero);
+            return true;
         } catch (NumberFormatException e) {
-        return false;
-         }
+            return false;
         }
-    
-        
-    
-
-    
+    }
 
     @FXML
     private void iniciarsesion2Action(ActionEvent event) throws IOException {
-            FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
-            Parent root = cargador.load();
-            
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("GreenBall CLUB - Iniciar Sesión");
-            stage.show();
-            
-            stage.setMinHeight(stage.getHeight());
-            stage.setMaxHeight(stage.getHeight());
-            stage.setMinWidth(stage.getWidth());
-            stage.setMaxWidth(stage.getWidth());
-            
-            usuarioTextField.getScene().getWindow().hide();
+        FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
+        Parent root = cargador.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("GreenBall CLUB - Iniciar Sesión");
+        stage.show();
+
+        stage.setMinHeight(stage.getHeight());
+        stage.setMaxHeight(stage.getHeight());
+        stage.setMinWidth(stage.getWidth());
+        stage.setMaxWidth(stage.getWidth());
+
+        usuarioTextField.getScene().getWindow().hide();
+    }
 }
-}
-    
-    
-  
-
-
-
-
-
-    
-
-    
-
-
