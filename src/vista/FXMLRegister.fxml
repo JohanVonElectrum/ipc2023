@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,14 +12,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegisterController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegisterController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="629.0" prefWidth="363.0">
                <children>
                   <TextField fx:id="usuarioTextField" layoutX="27.0" layoutY="225.0" prefHeight="28.0" prefWidth="302.0" promptText="Usuario (no incluyas espacios en el nombre)" />
-                  <TextField fx:id="contraseñaTextField" layoutX="27.0" layoutY="265.0" prefHeight="28.0" prefWidth="302.0" promptText="Contraseña (más de 6 caracteres)" />
+                  <PasswordField fx:id="passwordField" layoutX="27.0" layoutY="265.0" prefHeight="28.0" prefWidth="302.0" promptText="Contraseña (más de 6 caracteres)" />
                   <Label layoutX="94.0" layoutY="114.0" prefHeight="30.0" prefWidth="175.0" text="Registrar una cuenta">
                      <font>
                         <Font name="Gill Sans MT" size="20.0" />
@@ -45,7 +46,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="numtelefonoTextField" layoutX="27.0" layoutY="339.0" prefHeight="28.0" prefWidth="214.0" promptText="Num. Teléfono" />
-                  <TextField fx:id="contraseña2TextField" layoutX="27.0" layoutY="301.0" prefHeight="28.0" prefWidth="302.0" promptText="Repite tu contraseña" />
+                  <PasswordField fx:id="password2Field" layoutX="27.0" layoutY="301.0" prefHeight="28.0" prefWidth="302.0" promptText="Repite tu contraseña" />
                   <Button layoutX="74.0" layoutY="525.0" mnemonicParsing="false" onAction="#registrar2Action" prefHeight="66.0" prefWidth="214.0" text="Registrar" />
                   <Hyperlink layoutX="143.0" layoutY="591.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
                   <Label fx:id="errorcontraseñasLabel" layoutX="156.0" layoutY="270.0" prefHeight="18.0" prefWidth="190.0" textFill="#ea2525" />
