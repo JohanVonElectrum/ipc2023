@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Club;
@@ -35,7 +36,7 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField usuarioTextField;
     @FXML
-    private TextField contraseñaTextField;
+    private PasswordField passwordField;
     @FXML
     private TextField nombreTextField;
     @FXML
@@ -49,7 +50,7 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField numtelefonoTextField;
     @FXML
-    private TextField contraseña2TextField;
+    private PasswordField password2Field;
     @FXML
     private Label errorcontraseñasLabel;
     private ActionEvent ActionEvent;
@@ -72,8 +73,8 @@ public class RegisterController implements Initializable {
     @FXML
     private void registrar2Action(ActionEvent event) throws IOException, ClubDAOException {
         String nombre = nombreTextField.getText();
-        String contraseña = contraseñaTextField.getText();
-        String contraseña2 = contraseña2TextField.getText();
+        String contraseña = passwordField.getText();
+        String contraseña2 = password2Field.getText();
         String apellidos = apellidosTextField.getText();
         String usuario = usuarioTextField.getText();
         String tarjeta = tarjetaTextField.getText();
