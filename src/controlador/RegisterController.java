@@ -78,7 +78,7 @@ public class RegisterController implements Initializable {
         String usuario = usuarioTextField.getText();
         String tarjeta = tarjetaTextField.getText();
         String telefono = numtelefonoTextField.getText();
-        String cvc = cvcTextField.getText();
+        String svc = cvcTextField.getText();
    
 
         //COMPROBAR ESPACIOS VACIOS
@@ -120,7 +120,7 @@ public class RegisterController implements Initializable {
         
         //COMPROBAR NUMEROS
            
-           else if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && cvc.isEmpty()) && !(esNumero(tarjeta) && esNumero(cvc)))) {
+           else if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && svc.isEmpty()) && !(esNumero(tarjeta) && esNumero(svc)))) {
         Alert alert3 = new Alert(AlertType.ERROR);
         alert3.setTitle("Diálogo de excepción");
         alert3.setHeaderText("Error");
@@ -131,8 +131,7 @@ public class RegisterController implements Initializable {
         
         Club club = Club.getInstance();
         
-        
-        Member r = club.registerMember(nombre, apellidos, telefono, cvc, telefono, tarjeta, 0, null);
+        Member r = club.registerMember(nombre, apellidos, telefono, usuario, telefono, tarjeta.isEmpty() ? null : tarjeta, svc.isEmpty() ? 0 : Integer.parseInt(svc), null);
     }
 
         
