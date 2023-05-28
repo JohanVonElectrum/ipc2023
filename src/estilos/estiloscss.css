@@ -1,0 +1,93 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 may 2023, 19:34:17
+    Author     : victo
+*/
+
+
+
+*{
+    -fx-primary : #2A2E37;   
+    -fx-secondary : #E2FF8D;    
+    -fx-primarytext : #B2B2B2;  
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+    -fx-color-1:#1976D2;
+}
+
+
+
+.fondopantalla{
+    -fx-background-color: -fx-primary;
+}
+
+.text-field
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size : 12pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-prompt-text-fill: #575757;
+}
+
+.tituloverde{
+    -fx-text-fill: -fx-secondary ;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #000000, 3, 0, 0, 1),
+                dropshadow(gaussian, #FFFFFF, 3, 0, 0, -1);
+}
+
+.tituloblanco{
+    -fx-font-family: "Arial";
+    -fx-font-size: 50px;
+    -fx-font-weight: normal;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 1, 1, 0, 0);
+}
+
+.button{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 12pt;
+}
+
+.button:hover, .button:focused{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+/*Login especifico*/
+
+.inicioLabel{    
+    -fx-text-fill: white;
+    -fx-font-size: 20pt;
+    -fx-font-weight: bold;
+}
+
+.check-box{
+    -fx-text-fill: -fx-primarytext;
+}
+
+.botonEspecial{
+    -fx-text-fill: black;
+    -fx-background-color: -fx-secondary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 12pt;
+}
+
+.combo-box{
+    -jfx-focus-color: -fx-secondary;
+}
+
+.dialog{
+    -fx-background-color:red;
+}

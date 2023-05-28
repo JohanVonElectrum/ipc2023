@@ -27,6 +27,8 @@ public class JavaFXMLApplication extends Application {
         // 3- asiganación de la escena al Stage que recibe el metodo 
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
+        String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMinHeight(stage.getHeight());
         stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());

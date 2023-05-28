@@ -45,20 +45,12 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField cvcTextField;
     @FXML
-    private ComboBox<Member> fotoperfilComboBox;
-    @FXML
     private TextField numtelefonoTextField;
     @FXML
     private PasswordField password2Field;
     @FXML
     private Label errorcontraseñasLabel;
     private ActionEvent ActionEvent;
-    @FXML
-    private Label errortelefonoLabel;
-    @FXML
-    private Label errorcvcLabel;
-    @FXML
-    private Label errortarjetaLabel;
 
     /**
      * Initializes the controller class.
@@ -178,9 +170,11 @@ public class RegisterController implements Initializable {
     private void iniciarsesion2Action(ActionEvent event) throws IOException {
         FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
         Parent root = cargador.load();
-
+        
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setTitle("GreenBall CLUB - Iniciar Sesión");
         stage.show();

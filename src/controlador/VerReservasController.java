@@ -41,6 +41,8 @@ public class VerReservasController implements Initializable {
             
             Stage stage = new Stage();
             Scene scene = new Scene(root);
+            String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
+            scene.getStylesheets().add(css);
             stage.setScene(scene);
             stage.setTitle("GreenBall CLUB - Iniciar Sesión");
             stage.show();

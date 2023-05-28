@@ -18,6 +18,8 @@ public class DialogHelper {
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(content);
+        
+        
         return alert;
     }
     

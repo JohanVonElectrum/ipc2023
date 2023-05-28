@@ -30,7 +30,7 @@ import model.Member;
  *
  * @author jsoler
  */
-public class LoginController implements Initializable {
+public class loginController implements Initializable {
 
     @FXML
     private TextField usuarioTextField;
@@ -51,6 +51,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }
 
     @FXML
@@ -65,6 +66,7 @@ public class LoginController implements Initializable {
                     "Error al iniciar sesión",
                     "Los campos usuario y contraseña no pueden estar vaciós."
             );
+            
             return;
         }
 
@@ -79,9 +81,11 @@ public class LoginController implements Initializable {
     private void registrarAction(ActionEvent event) throws IOException {
         FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLRegister.fxml"));
         Parent root = cargador.load();
-
+        
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setTitle("GreenBall CLUB - Registrar una cuenta");
         stage.show();
