@@ -6,6 +6,7 @@
 package controlador;
 
 import aplicacion.DialogHelper;
+import aplicacion.JavaFXMLApplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,9 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,7 +29,7 @@ import model.Member;
  *
  * @author jsoler
  */
-public class loginController implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML
     private TextField usuarioTextField;
@@ -71,7 +70,24 @@ public class loginController implements Initializable {
         }
 
         try {
-            Member member = Club.getInstance().getMemberByCredentials(usuario, contraseña);
+            JavaFXMLApplication.currentMember = Club.getInstance().getMemberByCredentials(usuario, contraseña);
+            if (JavaFXMLApplication.currentMember == null) {
+                DialogHelper.showAlert(
+                    Alert.AlertType.ERROR,
+                    "Diálogo de excepción",
+                    "Error al iniciar sesión",
+                    "Los campos usuario y contraseña no son correctos."
+                );
+            
+                return;
+            }
+            
+            DialogHelper.showAlert(
+                    Alert.AlertType.INFORMATION,
+                    "Diálogo de información",
+                    "Sesión iniciada",
+                    String.format("Ha iniciado sesión con el usuario %s.", JavaFXMLApplication.currentMember.getNickName())
+            );
         } catch (ClubDAOException | IOException ex) {
             throw new RuntimeException(ex);
         }

@@ -129,7 +129,7 @@ public class RegisterController implements Initializable {
                     apellidos,
                     telefono,
                     usuario,
-                    telefono,
+                    contraseña,
                     tarjeta.isEmpty() ? null : tarjeta,
                     cvc.isEmpty() ? 0 : Integer.parseInt(cvc),
                     null
@@ -150,8 +150,9 @@ public class RegisterController implements Initializable {
                         "Error al crear el usuario",
                         "El nombre de usuario ya está siendo utilizado por otro usuario. Por favor, elija uno distinto."
                 );
+            } else {
+                throw new RuntimeException(ex);
             }
-            throw new RuntimeException(ex);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
