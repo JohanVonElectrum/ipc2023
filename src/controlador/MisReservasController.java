@@ -75,8 +75,8 @@ public class MisReservasController implements Initializable {
             throw new RuntimeException(ex);
         }
         anularBoton.disableProperty().bind(
-     Bindings.equal(-1,
-    tabla.getSelectionModel().selectedIndexProperty()));
+                Bindings.equal(-1,
+                        tabla.getSelectionModel().selectedIndexProperty()));
     }
 
     private void refreshTable() throws ClubDAOException, IOException {
@@ -169,12 +169,13 @@ public class MisReservasController implements Initializable {
                 "La reserva ha sido anulada correctamente.",
                 rootAnchorPane
         );
+        refreshTable();
         tabla.getSelectionModel().clearSelection();
     }
 
     @FXML
     private void anularreservaAction(ActionEvent event) throws IOException, ClubDAOException {
-      FilaBooking selectedItem = tabla.getSelectionModel().getSelectedItem();
-      cancelBooking(selectedItem);
-}
+        FilaBooking selectedItem = tabla.getSelectionModel().getSelectedItem();
+        cancelBooking(selectedItem);
+    }
 }
