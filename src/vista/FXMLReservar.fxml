@@ -8,45 +8,52 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ReservarController">
-   <children>
-      <AnchorPane fx:id="rootAnchorPane" prefHeight="470.0" prefWidth="700.0">
+
+<BorderPane styleClass="fondopantalla" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ReservarController">
+   <center>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0">
          <children>
-            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="472.0" prefWidth="700.0" styleClass="fondopantalla">
+            <AnchorPane fx:id="rootAnchorPane" prefHeight="470.0" prefWidth="700.0">
                <children>
-                  <HBox alignment="CENTER" layoutX="23.0" prefHeight="84.0" prefWidth="186.0">
+                  <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="472.0" prefWidth="700.0" styleClass="fondopantalla">
                      <children>
-                        <Label styleClass="titulopeqverde" text="Green" textFill="WHITE" />
-                        <Label styleClass="titulopeqblanco" text="Ball" textFill="WHITE" />
-                        <ImageView fitHeight="57.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../recursos/pelotamain.png" />
-                           </image>
-                        </ImageView>
+                        <HBox alignment="CENTER" layoutX="23.0" prefHeight="84.0" prefWidth="186.0">
+                           <children>
+                              <Label styleClass="titulopeqverde" text="Green" textFill="WHITE" />
+                              <Label styleClass="titulopeqblanco" text="Ball" textFill="WHITE" />
+                              <ImageView fitHeight="57.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../recursos/pelotamain.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <DatePicker fx:id="fecha" layoutX="361.0" layoutY="42.0" prefHeight="22.0" prefWidth="214.0" />
+                        <JFXButton contentDisplay="CENTER" layoutX="26.0" layoutY="400.0" onAction="#inicioAction" styleClass="botonEspecial" text="Inicio" />
+                        <HBox alignment="CENTER" layoutX="361.0" layoutY="400.0" prefHeight="38.0" prefWidth="317.0" spacing="15.0">
+                           <children>
+                              <JFXButton onAction="#disponibilidadAction" text="Disponibilidad pistas" />
+                              <JFXButton onAction="#misreservasAction" text="Mis reservas" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tabla" layoutX="26.0" layoutY="96.0" prefHeight="280.0" prefWidth="646.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Inicio" />
+                            <TableColumn prefWidth="75.0" text="Fin" />
+                              <TableColumn prefWidth="75.0" text="Pista" />
+                              <TableColumn minWidth="100.0" prefWidth="-1.0" resizable="false" text="Registrado" />
+                          </columns>
+                        </TableView>
+                        <JFXButton fx:id="reservarBoton" layoutX="585.0" layoutY="41.0" onAction="#reservar" prefHeight="36.0" prefWidth="86.0" text="Reservar" />
                      </children>
-                  </HBox>
-                  <DatePicker fx:id="fecha" layoutX="361.0" layoutY="42.0" prefHeight="22.0" prefWidth="214.0" />
-                  <JFXButton contentDisplay="CENTER" layoutX="26.0" layoutY="400.0" onAction="#inicioAction" styleClass="botonEspecial" text="Inicio" />
-                  <HBox alignment="CENTER" layoutX="361.0" layoutY="400.0" prefHeight="38.0" prefWidth="317.0" spacing="15.0">
-                     <children>
-                        <JFXButton onAction="#disponibilidadAction" text="Disponibilidad pistas" />
-                        <JFXButton onAction="#misreservasAction" text="Mis reservas" />
-                     </children>
-                  </HBox>
-                  <TableView fx:id="tabla" layoutX="26.0" layoutY="96.0" prefHeight="280.0" prefWidth="646.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Inicio" />
-                      <TableColumn prefWidth="75.0" text="Fin" />
-                        <TableColumn prefWidth="75.0" text="Pista" />
-                        <TableColumn minWidth="100.0" prefWidth="-1.0" resizable="false" text="Registrado" />
-                    </columns>
-                  </TableView>
-                  <JFXButton fx:id="reservarBoton" layoutX="585.0" layoutY="41.0" onAction="#reservar" prefHeight="36.0" prefWidth="86.0" text="Reservar" />
-               </children></AnchorPane>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-   </children>
-</StackPane>
+      </StackPane>
+   </center>
+</BorderPane>

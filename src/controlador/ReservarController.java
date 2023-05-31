@@ -146,13 +146,11 @@ public class ReservarController implements Initializable {
 
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Ver Reservas");
+        stage.setTitle("GreenBall CLUB - Menú Inicio");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         reservarBoton.getScene().getWindow().hide();
     }
@@ -172,9 +170,7 @@ public class ReservarController implements Initializable {
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         reservarBoton.getScene().getWindow().hide();
     }
@@ -194,10 +190,8 @@ public class ReservarController implements Initializable {
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
-
+        
         reservarBoton.getScene().getWindow().hide();
     }
 

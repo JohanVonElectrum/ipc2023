@@ -50,13 +50,11 @@ public class MenuInicioController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Registrar una cuenta");
+        stage.setTitle("GreenBall CLUB - Reservar");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         reservarBoton.getScene().getWindow().hide();
     }
@@ -71,14 +69,12 @@ public class MenuInicioController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Registrar una cuenta");
+        stage.setTitle("GreenBall CLUB - Mis reservas");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
-
+        
         reservarBoton.getScene().getWindow().hide();
         
     }
@@ -93,13 +89,12 @@ public class MenuInicioController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Registrar una cuenta");
+        stage.setTitle("GreenBall CLUB - Disponibilidad de pistas");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
+        
 
         reservarBoton.getScene().getWindow().hide();
     }
@@ -114,13 +109,11 @@ public class MenuInicioController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Registrar una cuenta");
+        stage.setTitle("GreenBall CLUB - Tu perfil");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         reservarBoton.getScene().getWindow().hide();
     }

@@ -21,6 +21,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Club;
@@ -100,13 +101,13 @@ public class LoginController implements Initializable {
             String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
             scene.getStylesheets().add(css);
             stage.setScene(scene);
-            stage.setTitle("GreenBall CLUB - Registrar una cuenta");
+            stage.setTitle("GreenBall CLUB - Menú inicio");
             stage.show();
-
+            
             stage.setMinHeight(stage.getHeight());
-            stage.setMaxHeight(stage.getHeight());
             stage.setMinWidth(stage.getWidth());
-            stage.setMaxWidth(stage.getWidth());
+
+            
 
             usuarioTextField.getScene().getWindow().hide();
 
@@ -127,11 +128,10 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("GreenBall CLUB - Registrar una cuenta");
         stage.show();
-
+        
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
+        
 
         usuarioTextField.getScene().getWindow().hide();
     }
@@ -147,13 +147,11 @@ public class LoginController implements Initializable {
 
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Ver Reservas");
+        stage.setTitle("GreenBall CLUB - Disponibilidad pistas");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         usuarioTextField.getScene().getWindow().hide();
 
@@ -172,4 +170,7 @@ public class LoginController implements Initializable {
             contraseñaTextField.setVisible(true);
         }
     }
+
+  
+ 
 }

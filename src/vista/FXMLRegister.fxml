@@ -10,75 +10,81 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegisterController">
-   <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../estilos/estiloscss.css">
+
+<BorderPane styleClass="fondopantalla" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegisterController">
+   <center>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="380.0">
          <children>
-            <AnchorPane prefHeight="652.0" prefWidth="390.0" styleClass="fondopantalla" stylesheets="@../estilos/estiloscss.css">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../estilos/estiloscss.css">
                <children>
-                  <ImageView fitHeight="93.0" fitWidth="138.0" layoutX="151.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../recursos/register2.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="27.0" layoutY="379.0" text="* Forma de pago (opcional)">
-                     <font>
-                        <Font name="Gill Sans MT" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="26.0" layoutY="456.0" text="* Elige tu foto de perfil (opcional)">
-                     <font>
-                        <Font name="Gill Sans MT" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="errorcontraseñasLabel" layoutX="156.0" layoutY="270.0" prefHeight="18.0" prefWidth="190.0" textFill="#ea2525" />
-                  <VBox layoutX="54.0" layoutY="177.0" prefHeight="203.0" prefWidth="283.0" spacing="5.0">
+                  <AnchorPane prefHeight="652.0" prefWidth="390.0" styleClass="fondopantalla" stylesheets="@../estilos/estiloscss.css">
                      <children>
-                        <HBox spacing="20.0">
+                        <ImageView fitHeight="93.0" fitWidth="138.0" layoutX="151.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/register2.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="27.0" layoutY="379.0" text="* Forma de pago (opcional)">
+                           <font>
+                              <Font name="Gill Sans MT" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="456.0" text="* Elige tu foto de perfil (opcional)">
+                           <font>
+                              <Font name="Gill Sans MT" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="errorcontraseñasLabel" layoutX="156.0" layoutY="270.0" prefHeight="18.0" prefWidth="190.0" textFill="#ea2525" />
+                        <VBox layoutX="54.0" layoutY="177.0" prefHeight="203.0" prefWidth="283.0" spacing="5.0">
                            <children>
-                              <JFXTextField fx:id="nombreTextField" prefHeight="39.0" prefWidth="129.0" promptText="Nombre" />
-                              <JFXTextField fx:id="apellidosTextField" prefHeight="38.0" prefWidth="154.0" promptText="Apellidos" />
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <JFXTextField fx:id="nombreTextField" prefHeight="39.0" prefWidth="129.0" promptText="Nombre" />
+                                    <JFXTextField fx:id="apellidosTextField" prefHeight="38.0" prefWidth="154.0" promptText="Apellidos" />
+                                 </children>
+                              </HBox>
+                              <JFXTextField fx:id="usuarioTextField" prefHeight="38.0" prefWidth="288.0" promptText="Usuario" />
+                              <JFXPasswordField fx:id="passwordField" prefHeight="37.0" prefWidth="288.0" promptText="Contraseña" />
+                              <JFXPasswordField fx:id="password2Field" prefHeight="37.0" prefWidth="288.0" promptText="Repite tu contraseña" />
+                              <JFXTextField fx:id="numtelefonoTextField" prefHeight="37.0" prefWidth="288.0" promptText="Num. Teléfono" />
                            </children>
-                        </HBox>
-                        <JFXTextField fx:id="usuarioTextField" prefHeight="38.0" prefWidth="288.0" promptText="Usuario" />
-                        <JFXPasswordField fx:id="passwordField" prefHeight="37.0" prefWidth="288.0" promptText="Contraseña" />
-                        <JFXPasswordField fx:id="password2Field" prefHeight="37.0" prefWidth="288.0" promptText="Repite tu contraseña" />
-                        <JFXTextField fx:id="numtelefonoTextField" prefHeight="37.0" prefWidth="288.0" promptText="Num. Teléfono" />
-                     </children>
-                  </VBox>
-                  <Label layoutX="53.0" layoutY="410.0" text="Método de pago (opcional)" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <HBox layoutX="54.0" layoutY="436.0" prefHeight="38.0" prefWidth="283.0" spacing="20.0">
-                     <children>
-                        <JFXTextField fx:id="tarjetaTextField" prefHeight="38.0" prefWidth="156.0" promptText="Tarjeta de crédito" />
-                        <JFXTextField fx:id="cvcTextField" prefHeight="38.0" prefWidth="116.0" promptText="CVC (3 Dígitos)" />
-                     </children>
-                  </HBox>
-                  <Label layoutX="129.0" layoutY="124.0" prefHeight="39.0" prefWidth="137.0" styleClass="inicioLabel" text="Regístrate" />
-                  <HBox layoutX="53.0" layoutY="502.0" spacing="20.0">
-                     <children>
-                        <Label prefHeight="20.0" prefWidth="156.0" text="Foto de perfil (opcional)" textFill="WHITE">
+                        </VBox>
+                        <Label layoutX="53.0" layoutY="410.0" text="Método de pago (opcional)" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="26.0" prefWidth="112.0" />
+                        <HBox layoutX="54.0" layoutY="436.0" prefHeight="38.0" prefWidth="283.0" spacing="20.0">
+                           <children>
+                              <JFXTextField fx:id="tarjetaTextField" prefHeight="38.0" prefWidth="156.0" promptText="Tarjeta de crédito" />
+                              <JFXTextField fx:id="cvcTextField" prefHeight="38.0" prefWidth="116.0" promptText="CVC (3 Dígitos)" />
+                           </children>
+                        </HBox>
+                        <Label layoutX="129.0" layoutY="124.0" prefHeight="39.0" prefWidth="137.0" styleClass="inicioLabel" text="Regístrate" />
+                        <HBox layoutX="53.0" layoutY="502.0" spacing="20.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="156.0" text="Foto de perfil (opcional)" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox prefHeight="26.0" prefWidth="112.0" />
+                           </children>
+                        </HBox>
+                        <JFXButton layoutX="70.0" layoutY="565.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
+                        <Hyperlink layoutX="157.0" layoutY="603.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
+                        <JFXDialog layoutX="63.0" layoutY="97.0" prefHeight="72.0" prefWidth="78.0" />
                      </children>
-                  </HBox>
-                  <JFXButton layoutX="70.0" layoutY="565.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
-                  <Hyperlink layoutX="157.0" layoutY="603.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
-                  <JFXDialog layoutX="63.0" layoutY="97.0" prefHeight="72.0" prefWidth="78.0" />
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
-      </AnchorPane>
-   </children>
-</StackPane>
+      </StackPane>
+   </center>
+</BorderPane>

@@ -96,13 +96,11 @@ public class MisReservasController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Iniciar Sesión");
+        stage.setTitle("GreenBall CLUB - Menú Inicio");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         inicioBoton.getScene().getWindow().hide();
     }
@@ -117,13 +115,11 @@ public class MisReservasController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Iniciar Sesión");
+        stage.setTitle("GreenBall CLUB - Disponinibilidad de pistas");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         inicioBoton.getScene().getWindow().hide();
     }
@@ -138,13 +134,11 @@ public class MisReservasController implements Initializable {
         String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Iniciar Sesión");
+        stage.setTitle("GreenBall CLUB - Reservar");
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         inicioBoton.getScene().getWindow().hide();
     }

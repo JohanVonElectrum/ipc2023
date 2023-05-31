@@ -7,49 +7,63 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasController">
+
+<GridPane styleClass="fondopantalla" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane prefHeight="470.0" prefWidth="694.0">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <AnchorPane layoutX="-4.0" prefHeight="470.0" prefWidth="709.0" styleClass="fondopantalla">
+            <AnchorPane>
                <children>
-                  <Label fx:id="etiquetaverreservasLabel" layoutX="479.0" layoutY="59.0" prefHeight="24.0" prefWidth="197.0" text="Ver reservas de pista" textFill="WHITE">
-                     <font>
-                        <Font name="Gill Sans MT Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <TableView fx:id="tabla" layoutX="31.0" layoutY="95.0" prefHeight="280.0" prefWidth="646.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Fecha" />
-                      <TableColumn prefWidth="75.0" text="Inicio" />
-                        <TableColumn prefWidth="75.0" text="Fin" />
-                        <TableColumn prefWidth="75.0" text="Pista" />
-                        <TableColumn prefWidth="75.0" text="Reservado" />
-                    </columns>
-                  </TableView>
-                  <JFXButton layoutX="560.0" layoutY="396.0" onAction="#iniciarsesion3Action" text="Iniciar Sesion" />
-                  <HBox alignment="CENTER" layoutX="31.0" layoutY="7.0" prefHeight="64.0" prefWidth="176.0">
+                  <AnchorPane layoutX="-4.0" prefHeight="470.0" prefWidth="709.0" styleClass="fondopantalla">
                      <children>
-                        <Label styleClass="titulopeqverde" text="Green" textFill="WHITE">
+                        <Label fx:id="etiquetaverreservasLabel" layoutX="479.0" layoutY="59.0" prefHeight="24.0" prefWidth="197.0" text="Ver reservas de pista" textFill="WHITE">
                            <font>
-                              <Font size="25.0" />
+                              <Font name="Gill Sans MT Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label prefWidth="44.0" styleClass="titulopeqblanco" text="Ball" textFill="WHITE" />
-                        <ImageView fitHeight="57.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../recursos/pelotamain.png" />
-                           </image>
-                        </ImageView>
+                        <TableView fx:id="tabla" layoutX="31.0" layoutY="95.0" prefHeight="280.0" prefWidth="646.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Fecha" />
+                            <TableColumn prefWidth="75.0" text="Inicio" />
+                              <TableColumn prefWidth="75.0" text="Fin" />
+                              <TableColumn prefWidth="75.0" text="Pista" />
+                              <TableColumn prefWidth="75.0" text="Reservado" />
+                          </columns>
+                        </TableView>
+                        <JFXButton layoutX="560.0" layoutY="396.0" onAction="#iniciarsesion3Action" text="Iniciar Sesion" />
+                        <HBox alignment="CENTER" layoutX="31.0" layoutY="7.0" prefHeight="64.0" prefWidth="176.0">
+                           <children>
+                              <Label styleClass="titulopeqverde" text="Green" textFill="WHITE">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label prefWidth="44.0" styleClass="titulopeqblanco" text="Ball" textFill="WHITE" />
+                              <ImageView fitHeight="57.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../recursos/pelotamain.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
-      </AnchorPane>
+      </StackPane>
    </children>
-</StackPane>
+</GridPane>

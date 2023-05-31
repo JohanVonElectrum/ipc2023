@@ -6,55 +6,61 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MenuInicioController">
-   <children>
-      <AnchorPane prefHeight="652.0" prefWidth="390.0">
+
+<BorderPane styleClass="fondopantalla" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MenuInicioController">
+   <center>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="390.0">
          <children>
-            <AnchorPane fx:id="anchorpane" prefHeight="652.0" prefWidth="390.0" styleClass="fondopantalla">
+            <AnchorPane prefHeight="652.0" prefWidth="390.0">
                <children>
-                  <HBox alignment="CENTER" layoutY="-1.0" prefHeight="146.0" prefWidth="390.0">
+                  <AnchorPane fx:id="anchorpane" prefHeight="652.0" prefWidth="390.0" styleClass="fondopantalla">
                      <children>
-                        <Label prefHeight="88.0" prefWidth="134.0" styleClass="tituloverde" text="Green">
+                        <HBox alignment="CENTER" layoutY="-1.0" prefHeight="146.0" prefWidth="390.0">
+                           <children>
+                              <Label prefHeight="88.0" prefWidth="134.0" styleClass="tituloverde" text="Green">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="71.0" prefWidth="103.0" styleClass="tituloblanco" text="Ball">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="97.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../recursos/pelotamain.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets left="35.0" />
+                           </padding>
+                        </HBox>
+                        <Label fx:id="inicioLabel" layoutX="154.0" layoutY="153.0" prefHeight="81.0" prefWidth="93.0" text="INICIO" textFill="WHITE">
                            <font>
-                              <Font size="19.0" />
+                              <Font name="System Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="71.0" prefWidth="103.0" styleClass="tituloblanco" text="Ball">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="97.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../recursos/pelotamain.png" />
-                           </image>
-                        </ImageView>
+                        <VBox alignment="CENTER" layoutX="76.0" layoutY="211.0" prefHeight="389.0" prefWidth="238.0" spacing="40.0">
+                           <children>
+                              <JFXButton fx:id="reservarBoton" focusTraversable="false" onAction="#reservarAction" prefHeight="38.0" prefWidth="197.0" text="Reservar" />
+                              <JFXButton focusTraversable="false" onAction="#misreservasAction" prefHeight="38.0" prefWidth="197.0" text="Mis reservas" />
+                              <JFXButton focusTraversable="false" onAction="#disponibilidadAction" prefHeight="38.0" prefWidth="197.0" text="Disponibilidad de pistas" />
+                              <JFXButton focusTraversable="false" onAction="#perfilAction" prefHeight="38.0" prefWidth="197.0" text="Tu perfil" />
+                           </children>
+                        </VBox>
                      </children>
-                     <padding>
-                        <Insets left="35.0" />
-                     </padding>
-                  </HBox>
-                  <Label fx:id="inicioLabel" layoutX="154.0" layoutY="153.0" prefHeight="81.0" prefWidth="93.0" text="INICIO" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <VBox alignment="CENTER" layoutX="76.0" layoutY="211.0" prefHeight="389.0" prefWidth="238.0" spacing="40.0">
-                     <children>
-                        <JFXButton fx:id="reservarBoton" focusTraversable="false" onAction="#reservarAction" prefHeight="38.0" prefWidth="197.0" text="Reservar" />
-                        <JFXButton focusTraversable="false" onAction="#misreservasAction" prefHeight="38.0" prefWidth="197.0" text="Mis reservas" />
-                        <JFXButton focusTraversable="false" onAction="#disponibilidadAction" prefHeight="38.0" prefWidth="197.0" text="Disponibilidad de pistas" />
-                        <JFXButton focusTraversable="false" onAction="#perfilAction" prefHeight="38.0" prefWidth="197.0" text="Tu perfil" />
-                     </children>
-                  </VBox>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
-      </AnchorPane>
-   </children>
-</StackPane>
+      </StackPane>
+   </center>
+</BorderPane>

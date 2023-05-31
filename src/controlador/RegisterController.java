@@ -181,9 +181,7 @@ public class RegisterController implements Initializable {
         stage.show();
 
         stage.setMinHeight(stage.getHeight());
-        stage.setMaxHeight(stage.getHeight());
         stage.setMinWidth(stage.getWidth());
-        stage.setMaxWidth(stage.getWidth());
 
         usuarioTextField.getScene().getWindow().hide();
     }
