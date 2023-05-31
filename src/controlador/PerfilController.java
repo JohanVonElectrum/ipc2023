@@ -96,7 +96,7 @@ public class PerfilController implements Initializable {
         String telefono = emptyIfNull(telefonoField.getText());
         String cvc = emptyIfNull(cvcField.getText());
         String foto = emptyIfNull(fotoField.getValue());
-        
+
         if (nombre.isEmpty()
                 || apellidos.isEmpty()
                 || contraseña.isEmpty()
@@ -118,7 +118,7 @@ public class PerfilController implements Initializable {
             );
             return;
         }
-        
+
         if (!(esNumero(telefono)) || (!(tarjeta.isEmpty() && cvc.isEmpty()) && !(esNumero(tarjeta) && esNumero(cvc)))) {
             DialogHelper.showAlert(
                     Alert.AlertType.ERROR,
@@ -128,7 +128,7 @@ public class PerfilController implements Initializable {
             );
             return;
         }
-        
+
         JavaFXMLApplication.currentMember.setName(nombre);
         JavaFXMLApplication.currentMember.setSurname(apellidos);
         JavaFXMLApplication.currentMember.setPassword(contraseña);
@@ -140,7 +140,7 @@ public class PerfilController implements Initializable {
         if (foto != null && !foto.isEmpty()) {
             JavaFXMLApplication.currentMember.setImage(new Image(foto));
         }
-        
+
         FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLMenuInicio.fxml"));
         Parent root = cargador.load();
 
@@ -160,14 +160,14 @@ public class PerfilController implements Initializable {
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
-        JavaFXMLApplication.currentMember = null;
-        
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Diálogo de confirmación");
         alert.setHeaderText("Vas a cerrar sesión");
         alert.setContentText("¿Estás seguro de que quieres cerrar sesión?");
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK){
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            JavaFXMLApplication.currentMember = null;
+            
             FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
             Parent root = cargador.load();
 
@@ -182,14 +182,16 @@ public class PerfilController implements Initializable {
             stage.setMinHeight(stage.getHeight());
             stage.setMinWidth(stage.getWidth());
 
-            cancelarBoton.getScene().getWindow().hide(); 
-            
+            cancelarBoton.getScene().getWindow().hide();
         }
-        
+
     }
-    
+
     private String emptyIfNull(String input) {
-        if (input == null) return "";
-        else return input;
+        if (input == null) {
+            return "";
+        } else {
+            return input;
+        }
     }
 }
