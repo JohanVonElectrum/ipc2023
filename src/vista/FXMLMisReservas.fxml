@@ -15,12 +15,12 @@
    <children>
       <AnchorPane fx:id="rootAnchorPane" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane prefHeight="470.0" prefWidth="700.0" styleClass="fondopantalla">
+            <AnchorPane prefHeight="470.0" prefWidth="707.0" styleClass="fondopantalla">
                <children>
-                  <HBox alignment="CENTER" layoutX="27.0" layoutY="14.0" prefHeight="42.0" prefWidth="110.0">
+                  <HBox alignment="CENTER" layoutX="26.0" layoutY="8.0" prefHeight="71.0" prefWidth="170.0">
                      <children>
-                        <Label text="Green" textFill="WHITE" />
-                        <Label text="Ball" textFill="WHITE" />
+                        <Label styleClass="titulopeqverde" text="Green" textFill="WHITE" />
+                        <Label styleClass="titulopeqblanco" text="Ball" textFill="WHITE" />
                         <ImageView fitHeight="49.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../recursos/pelotamain.png" />
@@ -28,12 +28,12 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label layoutX="28.0" layoutY="78.0" text="Mis reservas" textFill="WHITE">
+                  <Label layoutX="292.0" layoutY="52.0" text="Mis reservas" textFill="WHITE">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Gill Sans MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tabla" layoutX="28.0" layoutY="111.0" prefHeight="268.0" prefWidth="643.0">
+                  <TableView fx:id="tabla" layoutX="26.0" layoutY="95.0" prefHeight="280.0" prefWidth="646.0">
                     <columns>
                         <TableColumn prefWidth="75.0" text="Fecha" />
                       <TableColumn prefWidth="75.0" text="Inicio" />
@@ -41,14 +41,14 @@
                         <TableColumn prefWidth="75.0" text="Pista" />
                     </columns>
                   </TableView>
-                  <HBox alignment="CENTER" layoutX="34.0" layoutY="408.0" prefHeight="38.0" prefWidth="631.0" spacing="35.0">
+                  <JFXButton fx:id="inicioBoton" layoutX="26.0" layoutY="388.0" onAction="#inicioAction" styleClass="botonEspecial" text="Inicio" />
+                  <HBox alignment="CENTER" layoutX="386.0" layoutY="388.0" prefHeight="38.0" prefWidth="298.0" spacing="15.0">
                      <children>
-                        <JFXButton fx:id="inicioBoton" onAction="#inicioAction" text="Inicio" />
                         <JFXButton onAction="#disponibilidadAction" text="Disponibilidad Pistas" />
                         <JFXButton onAction="#reservarAction" text="Reservar" />
                      </children>
                   </HBox>
-                  <JFXButton fx:id="anularBoton" layoutX="514.0" layoutY="33.0" onAction="#anularreservaAction" text="Anular reserva" />
+                  <JFXButton fx:id="anularBoton" layoutX="546.0" layoutY="44.0" onAction="#anularreservaAction" styleClass="botonRojo" text="Anular reserva" />
                </children>
             </AnchorPane>
          </children>

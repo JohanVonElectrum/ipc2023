@@ -4,23 +4,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasLogeadoController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasLogeadoController">
    <children>
       <AnchorPane prefHeight="406.0" prefWidth="611.0">
          <children>
-            <AnchorPane layoutX="-4.0" prefHeight="411.0" prefWidth="608.0" styleClass="fondopantalla">
+            <AnchorPane layoutX="-4.0" prefHeight="470.0" prefWidth="706.0" styleClass="fondopantalla">
                <children>
-                  <Label fx:id="etiquetaverreservasLabel" layoutX="35.0" layoutY="20.0" prefHeight="23.0" prefWidth="167.0" text="Ver reservas de pista" textFill="WHITE">
+                  <Label fx:id="etiquetaverreservasLabel" layoutX="476.0" layoutY="57.0" prefHeight="24.0" prefWidth="200.0" text="Ver reservas de pista" textFill="WHITE">
                      <font>
-                        <Font name="Gill Sans MT" size="19.0" />
+                        <Font name="Gill Sans MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tabla" layoutX="34.0" layoutY="61.0" prefHeight="242.0" prefWidth="534.0">
+                  <TableView fx:id="tabla" layoutX="30.0" layoutY="95.0" prefHeight="280.0" prefWidth="646.0">
                     <columns>
                         <TableColumn prefWidth="75.0" text="Fecha" />
                         <TableColumn prefWidth="75.0" text="Inicio" />
@@ -29,11 +31,22 @@
                         <TableColumn prefWidth="75.0" text="Reservado" />
                     </columns>
                   </TableView>
-                  <HBox alignment="CENTER" layoutX="33.0" layoutY="341.0" prefHeight="38.0" prefWidth="534.0" spacing="35.0">
+                  <JFXButton layoutX="30.0" layoutY="395.0" onAction="#inicioAction" styleClass="botonEspecial" text="Inicio" />
+                  <HBox alignment="CENTER" layoutX="445.0" layoutY="395.0" prefHeight="38.0" prefWidth="240.0" spacing="15.0">
                      <children>
-                        <JFXButton onAction="#inicioAction" text="Inicio" />
                         <JFXButton onAction="#misreservasAction" text="Mis reservas" />
                         <JFXButton onAction="#reservarAction" text="Reservar" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="30.0" layoutY="-1.0" prefHeight="82.0" prefWidth="194.0">
+                     <children>
+                        <Label styleClass="titulopeqverde" text="Green" />
+                        <Label styleClass="titulopeqblanco" text="Ball" />
+                        <ImageView fitHeight="57.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/pelotamain.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                </children>

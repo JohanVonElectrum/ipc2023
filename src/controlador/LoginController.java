@@ -162,6 +162,7 @@ public class LoginController implements Initializable {
     @FXML
     private void showpasswordAction(ActionEvent event) {
         if (showpasswordCheckBox.isSelected()) {
+            showpasswordTextField.setDisable(false);
             showpasswordTextField.setText(contraseñaTextField.getText());
             showpasswordTextField.setVisible(true);
             contraseñaTextField.setVisible(false);

@@ -63,18 +63,18 @@
                      </children>
                   </HBox>
                   <Label layoutX="129.0" layoutY="124.0" prefHeight="39.0" prefWidth="137.0" styleClass="inicioLabel" text="Regístrate" />
-                  <HBox layoutX="53.0" layoutY="502.0" spacing="10.0">
+                  <HBox layoutX="53.0" layoutY="502.0" spacing="20.0">
                      <children>
                         <Label prefHeight="20.0" prefWidth="156.0" text="Foto de perfil (opcional)" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox prefHeight="26.0" prefWidth="112.0" />
                      </children>
                   </HBox>
-                  <JFXButton layoutX="63.0" layoutY="575.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
-                  <Hyperlink layoutX="152.0" layoutY="614.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
+                  <JFXButton layoutX="70.0" layoutY="565.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
+                  <Hyperlink layoutX="157.0" layoutY="603.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
                   <JFXDialog layoutX="63.0" layoutY="97.0" prefHeight="72.0" prefWidth="78.0" />
                </children>
             </AnchorPane>

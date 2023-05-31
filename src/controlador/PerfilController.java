@@ -42,7 +42,7 @@ public class PerfilController implements Initializable {
     @FXML
     private JFXPasswordField passwordField;
     @FXML
-    private JFXPasswordField tarjetaField;
+    private JFXTextField tarjetaField;
     @FXML
     private JFXTextField cvcField;
     @FXML

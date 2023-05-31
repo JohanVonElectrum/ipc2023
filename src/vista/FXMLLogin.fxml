@@ -23,7 +23,7 @@
                   <JFXPasswordField fx:id="contraseñaTextField" layoutX="65.0" layoutY="306.0" prefHeight="39.0" prefWidth="254.0" promptText="Contraseña" />
                   <HBox alignment="CENTER" layoutX="10.0" prefHeight="150.0" prefWidth="380.0">
                      <children>
-                        <Label styleClass="tituloverde" text="Green" />
+                        <Label prefHeight="88.0" prefWidth="134.0" styleClass="tituloverde" text="Green" />
                         <Label prefHeight="71.0" prefWidth="103.0" styleClass="tituloblanco" text="Ball" />
                         <ImageView fitHeight="97.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                            <image>

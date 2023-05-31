@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -25,13 +27,17 @@ public class MenuInicioController implements Initializable {
 
     @FXML
     private Button reservarBoton;
+    @FXML
+    private Label inicioLabel;
+    @FXML
+    private AnchorPane anchorpane;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+     
     }    
 
     @FXML
