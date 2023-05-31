@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MisReservasController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MisReservasController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -28,15 +28,17 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label layoutX="28.0" layoutY="78.0" text="Mis últimas 10 reservas" textFill="WHITE">
+                  <Label layoutX="28.0" layoutY="78.0" text="Mis reservas" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TableView layoutX="28.0" layoutY="111.0" prefHeight="268.0" prefWidth="643.0">
+                  <TableView fx:id="tabla" layoutX="28.0" layoutY="111.0" prefHeight="268.0" prefWidth="643.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn prefWidth="75.0" text="Fecha" />
+                      <TableColumn prefWidth="75.0" text="Inicio" />
+                      <TableColumn prefWidth="75.0" text="Fin" />
+                        <TableColumn prefWidth="75.0" text="Pista" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" layoutX="34.0" layoutY="408.0" prefHeight="38.0" prefWidth="631.0" spacing="35.0">

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasLogeadoController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasLogeadoController">
    <children>
       <AnchorPane prefHeight="406.0" prefWidth="611.0">
          <children>
@@ -20,10 +20,13 @@
                         <Font name="Gill Sans MT" size="19.0" />
                      </font>
                   </Label>
-                  <TableView layoutX="34.0" layoutY="61.0" prefHeight="242.0" prefWidth="534.0">
+                  <TableView fx:id="tabla" layoutX="34.0" layoutY="61.0" prefHeight="242.0" prefWidth="534.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn prefWidth="75.0" text="Fecha" />
+                        <TableColumn prefWidth="75.0" text="Inicio" />
+                        <TableColumn prefWidth="75.0" text="Fin" />
+                        <TableColumn prefWidth="75.0" text="Pista" />
+                        <TableColumn prefWidth="75.0" text="Reservado" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" layoutX="33.0" layoutY="341.0" prefHeight="38.0" prefWidth="534.0" spacing="35.0">

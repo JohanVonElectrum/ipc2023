@@ -4,9 +4,17 @@
  */
 package controlador;
 
+import aplicacion.FilaBooking;
+import aplicacion.JavaFXMLApplication;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +22,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.Booking;
+import model.Club;
+import model.ClubDAOException;
+import model.Court;
 
 /**
  * FXML Controller class
@@ -26,14 +41,35 @@ public class MisReservasController implements Initializable {
 
     @FXML
     private Button inicioBoton;
+    @FXML
+    private TableView<FilaBooking> tabla;
+
+    private Club club;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        tabla.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("date"));
+        tabla.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("fromTime"));
+        tabla.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("toTime"));
+        ((TableColumn<FilaBooking, String>) tabla.getColumns().get(3)).setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getPista().getName()));
+        
+        try {
+            club = Club.getInstance();
+            refreshTable();
+        } catch (IOException | ClubDAOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    
+    private void refreshTable() throws ClubDAOException, IOException {
+        tabla.getItems().clear();
+        club.getUserBookings(JavaFXMLApplication.currentMember.getNickName()).forEach(booking -> {
+            tabla.getItems().add(new FilaBooking(booking));
+        });
+    }
 
     @FXML
     private void inicioAction(ActionEvent event) throws IOException {
