@@ -69,8 +69,7 @@ public class LoginController implements Initializable {
                     Alert.AlertType.ERROR,
                     "Diálogo de excepción",
                     "Error al iniciar sesión",
-                    "Los campos usuario y contraseña no pueden estar vacíos."
-                    
+                    "Los campos usuario y contraseña no pueden estar vacíos."                    
             );
             rootAnchorPane.setEffect(null);
             return;

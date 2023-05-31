@@ -158,7 +158,7 @@ public class RegisterController implements Initializable {
         }
     }
 
-    public boolean esNumero(String numero) {
+    public static boolean esNumero(String numero) {
         try {
             Double.valueOf(numero);
             return true;

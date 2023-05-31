@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PerfilController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PerfilController">
    <children>
       <AnchorPane prefHeight="652.0" prefWidth="390.0">
          <children>
@@ -42,22 +42,22 @@
                         <Insets left="35.0" />
                      </padding>
                   </HBox>
-                  <JFXTextField layoutX="40.0" layoutY="189.0" prefHeight="38.0" prefWidth="95.0" promptText="Nombre" />
-                  <JFXTextField layoutX="157.0" layoutY="190.0" prefHeight="38.0" prefWidth="180.0" promptText="Apellidos" />
-                  <JFXPasswordField layoutX="40.0" layoutY="249.0" prefHeight="38.0" prefWidth="296.0" promptText="Contraseña" />
+                  <JFXTextField fx:id="nombreField" layoutX="40.0" layoutY="189.0" prefHeight="38.0" prefWidth="95.0" promptText="Nombre" />
+                  <JFXTextField fx:id="apellidosField" layoutX="157.0" layoutY="190.0" prefHeight="38.0" prefWidth="180.0" promptText="Apellidos" />
+                  <JFXPasswordField fx:id="passwordField" layoutX="40.0" layoutY="249.0" prefHeight="38.0" prefWidth="296.0" promptText="Contraseña" />
                   <JFXButton fx:id="cancelarBoton" layoutX="153.0" layoutY="499.0" onAction="#cancelarAction" text="Cancelar" />
                   <JFXButton layoutX="244.0" layoutY="499.0" onAction="#guardarBoton" prefHeight="38.0" prefWidth="86.0" text="Guardar" />
-                  <JFXPasswordField layoutX="40.0" layoutY="362.0" promptText="Tarjeta crédito" />
-                  <JFXTextField layoutX="234.0" layoutY="361.0" prefHeight="38.0" prefWidth="102.0" promptText="CVC" />
-                  <JFXPasswordField layoutX="40.0" layoutY="308.0" prefHeight="37.0" prefWidth="296.0" promptText="Telefono" />
-                  <ChoiceBox layoutX="180.0" layoutY="445.0" prefWidth="150.0" />
+                  <JFXPasswordField fx:id="tarjetaField" layoutX="40.0" layoutY="362.0" promptText="Tarjeta crédito" />
+                  <JFXTextField fx:id="cvcField" layoutX="234.0" layoutY="361.0" prefHeight="38.0" prefWidth="102.0" promptText="CVC" />
+                  <JFXTextField fx:id="telefonoField" layoutX="40.0" layoutY="308.0" prefHeight="37.0" prefWidth="296.0" promptText="Telefono" />
+                  <ChoiceBox fx:id="fotoField" layoutX="180.0" layoutY="445.0" prefWidth="150.0" />
                   <Label layoutX="48.0" layoutY="449.0" text="Elige tu foto de perfil" textFill="WHITE" />
                   <ImageView fitHeight="59.0" fitWidth="53.0" layoutX="234.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../recursos/User_icon_2.svg.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="45.0" layoutY="578.0" mnemonicParsing="false" text="Cerrar Sesión" />
+                  <Button layoutX="45.0" layoutY="578.0" mnemonicParsing="false" onAction="#logout" text="Cerrar Sesión" />
                </children>
             </AnchorPane>
          </children>
