@@ -103,6 +103,14 @@ public class ReservarController implements Initializable {
             };
         });
 
+        fecha.valueProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                refreshTable();
+            } catch (IOException | ClubDAOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
     }
 
     private void refreshTable() throws ClubDAOException, IOException {
