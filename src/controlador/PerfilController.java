@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import static controlador.RegisterController.esNumero;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -159,21 +162,30 @@ public class PerfilController implements Initializable {
     private void logout(ActionEvent event) throws IOException {
         JavaFXMLApplication.currentMember = null;
         
-        FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
-        Parent root = cargador.load();
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Diálogo de confirmación");
+        alert.setHeaderText("Vas a cerrar sesión");
+        alert.setContentText("¿Estás seguro de que quieres cerrar sesión?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("/vista/FXMLLogin.fxml"));
+            Parent root = cargador.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.setTitle("GreenBall CLUB - Iniciar Sesión");
+            stage.show();
+
+            stage.setMinHeight(stage.getHeight());
+            stage.setMinWidth(stage.getWidth());
+
+            cancelarBoton.getScene().getWindow().hide(); 
+            
+        }
         
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        String css = this.getClass().getResource("/estilos/estiloscss.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.setTitle("GreenBall CLUB - Iniciar Sesión");
-        stage.show();
-
-        stage.setMinHeight(stage.getHeight());
-        stage.setMinWidth(stage.getWidth());
-
-        cancelarBoton.getScene().getWindow().hide();
     }
     
     private String emptyIfNull(String input) {
