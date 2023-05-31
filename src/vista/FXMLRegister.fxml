@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDialog?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -65,16 +65,16 @@
                   <Label layoutX="129.0" layoutY="124.0" prefHeight="39.0" prefWidth="137.0" styleClass="inicioLabel" text="Regístrate" />
                   <HBox layoutX="53.0" layoutY="502.0" spacing="10.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="199.0" text="Elige tu foto de perfil (opcional)" textFill="WHITE">
+                        <Label prefHeight="20.0" prefWidth="156.0" text="Foto de perfil (opcional)" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <JFXComboBox prefHeight="26.0" prefWidth="78.0" />
+                        <ChoiceBox prefWidth="150.0" />
                      </children>
                   </HBox>
-                  <JFXButton layoutX="64.0" layoutY="558.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
-                  <Hyperlink layoutX="153.0" layoutY="604.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
+                  <JFXButton layoutX="63.0" layoutY="575.0" onAction="#registrar2Action" prefHeight="38.0" prefWidth="254.0" text="Registrarse" />
+                  <Hyperlink layoutX="152.0" layoutY="614.0" onAction="#iniciarsesion2Action" text="Iniciar Sesión" />
                   <JFXDialog layoutX="63.0" layoutY="97.0" prefHeight="72.0" prefWidth="78.0" />
                </children>
             </AnchorPane>

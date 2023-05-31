@@ -9,23 +9,22 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.LoginController">
    <children>
-      <AnchorPane prefHeight="672.0" prefWidth="380.0">
+      <AnchorPane fx:id="rootAnchorPane" prefHeight="672.0" prefWidth="380.0">
          <children>
             <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="652.0" prefWidth="390.0" styleClass="fondopantalla">
                <children>
-                  <JFXTextField fx:id="usuarioTextField" layoutX="66.0" layoutY="267.0" prefHeight="34.0" prefWidth="254.0" promptText="Usuario" />
-                  <JFXTextField fx:id="showpasswordTextField" layoutX="66.0" layoutY="313.0" prefHeight="38.0" prefWidth="254.0" />
+                  <JFXTextField fx:id="usuarioTextField" layoutX="65.0" layoutY="261.0" prefHeight="34.0" prefWidth="254.0" promptText="Usuario" />
+                  <JFXPasswordField fx:id="contraseñaTextField" layoutX="65.0" layoutY="306.0" prefHeight="39.0" prefWidth="254.0" promptText="Contraseña" />
                   <HBox alignment="CENTER" layoutX="10.0" prefHeight="150.0" prefWidth="380.0">
                      <children>
                         <Label styleClass="tituloverde" text="Green" />
-                        <Label prefHeight="71.0" prefWidth="103.0" styleClass="tituloblanco" text="Club" />
+                        <Label prefHeight="71.0" prefWidth="103.0" styleClass="tituloblanco" text="Ball" />
                         <ImageView fitHeight="97.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../recursos/pelotamain.png" />
@@ -33,7 +32,7 @@
                         </ImageView>
                      </children>
                      <padding>
-                        <Insets left="10.0" />
+                        <Insets left="20.0" />
                      </padding>
                   </HBox>
                   <Label alignment="CENTER" layoutX="137.0" layoutY="173.0" prefHeight="34.0" prefWidth="126.0" text="Inicia Sesión">
@@ -42,9 +41,9 @@
                      </font>
                   </Label>
                   <Label layoutX="111.0" layoutY="529.0" prefHeight="18.0" prefWidth="170.0" text="¿No tienes cuenta? ¡Regístrate!" textFill="WHITE" />
-                  <JFXPasswordField fx:id="contraseñaTextField" layoutX="66.0" layoutY="313.0" prefHeight="38.0" prefWidth="254.0" promptText="Contraseña" />
+                  <JFXTextField fx:id="showpasswordTextField" disable="true" layoutX="65.0" layoutY="306.0" prefHeight="39.0" prefWidth="254.0" styleClass="text-field" />
                   <JFXButton layoutX="66.0" layoutY="403.0" onAction="#iniciarsesionAction" prefHeight="38.0" prefWidth="254.0" text="Iniciar sesión" />
-                  <JFXButton layoutX="67.0" layoutY="449.0" onAction="#verreservasAction" prefHeight="38.0" prefWidth="254.0" text="Ver reservas" />
+                  <JFXButton layoutX="67.0" layoutY="449.0" onAction="#verreservasAction" prefHeight="38.0" prefWidth="254.0" text="Disponibilidad de pistas" />
                   <JFXButton layoutX="67.0" layoutY="554.0" onAction="#registrarAction" prefHeight="38.0" prefWidth="254.0" styleClass="botonEspecial" text="Registrarse" />
                   <Label id="inicioLabel" layoutX="118.0" layoutY="187.0" prefHeight="39.0" prefWidth="163.0" styleClass="inicioLabel" text="Inicia Sesión" textFill="WHITE">
                      <font>
@@ -57,7 +56,6 @@
                         <Image url="@../recursos/candado.png" />
                      </image>
                   </ImageView>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" />
                      
                </children>
             </AnchorPane>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasController">
+   <children>
+      <AnchorPane prefHeight="406.0" prefWidth="611.0">
+         <children>
+            <AnchorPane layoutX="-4.0" prefHeight="411.0" prefWidth="608.0" styleClass="fondopantalla">
+               <children>
+                  <Label fx:id="etiquetaverreservasLabel" layoutX="35.0" layoutY="20.0" prefHeight="23.0" prefWidth="167.0" text="Ver reservas de pista" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans MT" size="19.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="34.0" layoutY="61.0" prefHeight="242.0" prefWidth="534.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <JFXButton layoutX="451.0" layoutY="341.0" onAction="#iniciarsesion3Action" text="Iniciar Sesion" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

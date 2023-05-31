@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MisReservasController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="470.0" prefWidth="700.0" styleClass="fondopantalla">
+               <children>
+                  <HBox alignment="CENTER" layoutX="27.0" layoutY="14.0" prefHeight="42.0" prefWidth="110.0">
+                     <children>
+                        <Label text="Green" textFill="WHITE" />
+                        <Label text="Ball" textFill="WHITE" />
+                        <ImageView fitHeight="49.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/pelotamain.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Label layoutX="28.0" layoutY="78.0" text="Mis últimas 10 reservas" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="28.0" layoutY="111.0" prefHeight="268.0" prefWidth="643.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <HBox alignment="CENTER" layoutX="34.0" layoutY="408.0" prefHeight="38.0" prefWidth="631.0" spacing="35.0">
+                     <children>
+                        <JFXButton fx:id="inicioBoton" onAction="#inicioAction" text="Inicio" />
+                        <JFXButton onAction="#disponibilidadAction" text="Disponibilidad Pistas" />
+                        <JFXButton onAction="#reservarAction" text="Reservar" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

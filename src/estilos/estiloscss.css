@@ -32,6 +32,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-prompt-text-fill: #575757;
 }
 
+#showpasswordTextField{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size : 12pt;
+    -jfx-focus-color: -fx-secondary;
+    -fx-prompt-text-fill: #575757;
+}
+
 .tituloverde{
     -fx-text-fill: -fx-secondary ;
     -fx-font-size: 48px;
@@ -83,11 +90,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-radius: 20px;
     -fx-font-size: 12pt;
 }
+.botonEspecial:hover, .botonEspecial:focused{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: #E6FF9E;
+    -fx-text-fill: -fx-primary;
+}
 
 .combo-box{
     -jfx-focus-color: -fx-secondary;
 }
 
-.dialog{
-    -fx-background-color:red;
+.dialog-pane {
+    -fx-background-color: #F3FFCE; /* Color de fondo */
 }
+
