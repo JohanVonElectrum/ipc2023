@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MisReservasController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MisReservasController">
    <children>
       <AnchorPane fx:id="rootAnchorPane" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -48,6 +48,7 @@
                         <JFXButton onAction="#reservarAction" text="Reservar" />
                      </children>
                   </HBox>
+                  <JFXButton fx:id="anularBoton" layoutX="514.0" layoutY="33.0" onAction="#anularreservaAction" text="Anular reserva" />
                </children>
             </AnchorPane>
          </children>

@@ -7,6 +7,7 @@ package controlador;
 import aplicacion.DialogHelper;
 import aplicacion.FilaBooking;
 import aplicacion.JavaFXMLApplication;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -16,7 +17,9 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,6 +55,8 @@ public class MisReservasController implements Initializable {
     private Club club;
     @FXML
     private AnchorPane rootAnchorPane;
+    @FXML
+    private JFXButton anularBoton;
 
     /**
      * Initializes the controller class.
@@ -69,6 +74,9 @@ public class MisReservasController implements Initializable {
         } catch (IOException | ClubDAOException ex) {
             throw new RuntimeException(ex);
         }
+        anularBoton.disableProperty().bind(
+     Bindings.equal(-1,
+    tabla.getSelectionModel().selectedIndexProperty()));
     }
 
     private void refreshTable() throws ClubDAOException, IOException {
@@ -164,4 +172,9 @@ public class MisReservasController implements Initializable {
         tabla.getSelectionModel().clearSelection();
     }
 
+    @FXML
+    private void anularreservaAction(ActionEvent event) throws IOException, ClubDAOException {
+      FilaBooking selectedItem = tabla.getSelectionModel().getSelectedItem();
+      cancelBooking(selectedItem);
+}
 }

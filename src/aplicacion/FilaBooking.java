@@ -67,6 +67,10 @@ public class FilaBooking {
     public LocalDateTime getDateTime() {
         return LocalDateTime.of(date, fromTime);
     }
+
+    public void cancelBooking() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
