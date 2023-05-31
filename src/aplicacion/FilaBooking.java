@@ -3,6 +3,7 @@
 package aplicacion;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import model.Booking;
 import model.Court;
@@ -61,6 +62,10 @@ public class FilaBooking {
 
     public Member getReservado() {
         return reservado;
+    }
+    
+    public LocalDateTime getDateTime() {
+        return LocalDateTime.of(date, fromTime);
     }
     
     

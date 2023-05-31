@@ -13,7 +13,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ReservarController">
    <children>
-      <AnchorPane prefHeight="526.0" prefWidth="708.0">
+      <AnchorPane fx:id="rootAnchorPane" prefHeight="526.0" prefWidth="708.0">
          <children>
             <AnchorPane layoutX="-6.0" layoutY="8.0" prefHeight="495.0" prefWidth="718.0" styleClass="fondopantalla">
                <children>

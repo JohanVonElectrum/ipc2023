@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import aplicacion.DialogHelper;
 import aplicacion.FilaBooking;
 import aplicacion.JavaFXMLApplication;
 import com.jfoenix.controls.JFXButton;
@@ -29,11 +30,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Booking;
 import model.Club;
@@ -55,6 +59,8 @@ public class ReservarController implements Initializable {
     private TableView<FilaBooking> tabla;
 
     private Club club;
+    @FXML
+    private AnchorPane rootAnchorPane;
 
     /**
      * Initializes the controller class.
@@ -66,9 +72,9 @@ public class ReservarController implements Initializable {
         tabla.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("toTime"));
         ((TableColumn<FilaBooking, String>) tabla.getColumns().get(2)).setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getPista().getName()));
         ((TableColumn<FilaBooking, String>) tabla.getColumns().get(3)).setCellValueFactory(cellData -> new ReadOnlyStringWrapper(
-                cellData.getValue().getReservado() == null ?
-                        "No reservado" :
-                        cellData.getValue().getReservado().getNickName()
+                cellData.getValue().getReservado() == null
+                ? "No reservado"
+                : cellData.getValue().getReservado().getNickName()
         ));
 
         fecha.setValue(LocalDate.now());
@@ -85,6 +91,17 @@ public class ReservarController implements Initializable {
                     return selectedItem == null || selectedItem.getReservado() != null;
                 }, tabla.getSelectionModel().selectedItemProperty())
         );
+
+        fecha.setDayCellFactory((DatePicker picker) -> {
+            return new DateCell() {
+                @Override
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0);
+                }
+            };
+        });
 
     }
 
@@ -180,6 +197,23 @@ public class ReservarController implements Initializable {
     private void reservar(ActionEvent event) {
         FilaBooking booking = tabla.getSelectionModel().getSelectedItem();
         try {
+            Map<Integer, Booking> bookings = club.getForDayBookings(booking.getDate()).stream()
+                    .filter(b -> b.getMember().equals(JavaFXMLApplication.currentMember))
+                    .collect(Collectors.toMap(
+                            b -> Math.abs(booking.getFromTime().getHour() - b.getFromTime().getHour()),
+                            b -> b,
+                            (b, b2) -> b
+                    ));
+            if (bookings.containsKey(1) && bookings.containsKey(2)) {
+                DialogHelper.showAlert(
+                        Alert.AlertType.ERROR,
+                        "Diálogo de excepción",
+                        "Error al registrar la reserva",
+                        "Solo puede reservar una pista durante 2 horas consecutivas.",
+                        rootAnchorPane
+                );
+                return;
+            }
             club.registerBooking(
                     LocalDateTime.now(),
                     fecha.getValue(),
